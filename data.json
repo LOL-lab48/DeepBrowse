@@ -1,0 +1,150 @@
+{
+  "name": "Home",
+  "children": [
+    {
+      "name": "Soccer",
+      "children": [
+        {
+          "name": "Training",
+          "children": [
+            {
+              "name": "Beginner",
+              "links": [
+                {
+                  "title": "7mlc Soccer Training",
+                  "url": "https://www.youtube.com/c/7mlc",
+                  "desc": "Beginner-friendly drills and skills"
+                },
+                {
+                  "title": "Nike Training Tips",
+                  "url": "https://www.nike.com/football",
+                  "desc": "Guides and training advice from Nike"
+                }
+              ]
+            },
+            {
+              "name": "Advanced",
+              "links": [
+                {
+                  "title": "Unisport Training",
+                  "url": "https://www.youtube.com/c/unisportlife",
+                  "desc": "Advanced techniques and pro-level drills"
+                },
+                {
+                  "title": "FIFA Training Centre",
+                  "url": "https://www.fifatrainingcentre.com",
+                  "desc": "Official coaching and tactical resources"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "News",
+          "links": [
+            {
+              "title": "BBC Sport Football",
+              "url": "https://www.bbc.com/sport/football",
+              "desc": "Latest football news and updates"
+            },
+            {
+              "title": "Sky Sports Football",
+              "url": "https://www.skysports.com/football",
+              "desc": "Premier League and global football news"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tech",
+      "children": [
+        {
+          "name": "Coding",
+          "children": [
+            {
+              "name": "Learn",
+              "links": [
+                {
+                  "title": "freeCodeCamp",
+                  "url": "https://www.freecodecamp.org",
+                  "desc": "Free coding courses and certifications"
+                },
+                {
+                  "title": "W3Schools",
+                  "url": "https://www.w3schools.com",
+                  "desc": "Beginner-friendly coding tutorials"
+                }
+              ]
+            },
+            {
+              "name": "Practice",
+              "links": [
+                {
+                  "title": "LeetCode",
+                  "url": "https://leetcode.com",
+                  "desc": "Coding challenges and interview prep"
+                },
+                {
+                  "title": "Codewars",
+                  "url": "https://www.codewars.com",
+                  "desc": "Fun coding challenges ranked by difficulty"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Gadgets",
+          "links": [
+            {
+              "title": "The Verge",
+              "url": "https://www.theverge.com/tech",
+              "desc": "Latest tech and gadget news"
+            },
+            {
+              "title": "CNET",
+              "url": "https://www.cnet.com/tech",
+              "desc": "Reviews and tech product insights"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Learning",
+      "children": [
+        {
+          "name": "Science",
+          "links": [
+            {
+              "title": "Khan Academy",
+              "url": "https://www.khanacademy.org",
+              "desc": "Free courses on science and more"
+            },
+            {
+              "title": "NASA",
+              "url": "https://www.nasa.gov",
+              "desc": "Space, science, and exploration"
+            }
+          ]
+        },
+        {
+          "name": "General Knowledge",
+          "links": [
+            {
+              "title": "Wikipedia",
+              "url": "https://www.wikipedia.org",
+              "desc": "Massive free knowledge base"
+            },
+            {
+              "title": "Britannica",
+              "url": "https://www.britannica.com",
+              "desc": "Trusted encyclopedia articles"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
