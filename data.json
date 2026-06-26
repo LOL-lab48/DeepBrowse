@@ -9,139 +9,205 @@
           "children": [
             {
               "name": "Beginner",
-              "links": [
-                {
-                  "title": "7mlc Soccer Training",
-                  "url": "https://www.youtube.com/c/7mlc",
-                  "desc": "Beginner-friendly drills and skills"
-                },
-                {
-                  "title": "Nike Training Tips",
-                  "url": "https://www.nike.com/football",
-                  "desc": "Guides and training advice from Nike"
-                }
+              "children": [
+                { "name": "Ball Control", "links": [] },
+                { "name": "First Touch", "links": [] },
+                { "name": "Basic Passing", "links": [] }
+              ]
+            },
+            {
+              "name": "Intermediate",
+              "children": [
+                { "name": "Dribbling Skills", "links": [] },
+                { "name": "Movement", "links": [] },
+                { "name": "Positioning", "links": [] }
               ]
             },
             {
               "name": "Advanced",
-              "links": [
-                {
-                  "title": "Unisport Training",
-                  "url": "https://www.youtube.com/c/unisportlife",
-                  "desc": "Advanced techniques and pro-level drills"
-                },
-                {
-                  "title": "FIFA Training Centre",
-                  "url": "https://www.fifatrainingcentre.com",
-                  "desc": "Official coaching and tactical resources"
-                }
+              "children": [
+                { "name": "Tactics", "links": [] },
+                { "name": "Game Intelligence", "links": [] },
+                { "name": "Decision Making", "links": [] }
               ]
             }
           ]
         },
         {
-          "name": "News",
-          "links": [
-            {
-              "title": "BBC Sport Football",
-              "url": "https://www.bbc.com/sport/football",
-              "desc": "Latest football news and updates"
-            },
-            {
-              "title": "Sky Sports Football",
-              "url": "https://www.skysports.com/football",
-              "desc": "Premier League and global football news"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Tech",
-      "children": [
-        {
-          "name": "Coding",
+          "name": "Positions",
           "children": [
             {
-              "name": "Learn",
-              "links": [
-                {
-                  "title": "freeCodeCamp",
-                  "url": "https://www.freecodecamp.org",
-                  "desc": "Free coding courses and certifications"
-                },
-                {
-                  "title": "W3Schools",
-                  "url": "https://www.w3schools.com",
-                  "desc": "Beginner-friendly coding tutorials"
-                }
+              "name": "Striker",
+              "children": [
+                { "name": "Finishing", "links": [] },
+                { "name": "Off-ball Movement", "links": [] },
+                { "name": "1v1 Situations", "links": [] }
               ]
             },
             {
-              "name": "Practice",
-              "links": [
-                {
-                  "title": "LeetCode",
-                  "url": "https://leetcode.com",
-                  "desc": "Coding challenges and interview prep"
-                },
-                {
-                  "title": "Codewars",
-                  "url": "https://www.codewars.com",
-                  "desc": "Fun coding challenges ranked by difficulty"
-                }
+              "name": "Goalkeeper",
+              "children": [
+                { "name": "Diving", "links": [] },
+                { "name": "Handling", "links": [] },
+                { "name": "Reflex Training", "links": [] }
               ]
             }
           ]
         },
         {
-          "name": "Gadgets",
-          "links": [
-            {
-              "title": "The Verge",
-              "url": "https://www.theverge.com/tech",
-              "desc": "Latest tech and gadget news"
-            },
-            {
-              "title": "CNET",
-              "url": "https://www.cnet.com/tech",
-              "desc": "Reviews and tech product insights"
-            }
+          "name": "Competitions",
+          "children": [
+            { "name": "World Cup", "links": [] },
+            { "name": "Champions League", "links": [] },
+            { "name": "Europa League", "links": [] }
           ]
         }
       ]
     },
+
+    {
+      "name": "Technology",
+      "children": [
+        {
+          "name": "Programming",
+          "children": [
+            {
+              "name": "Languages",
+              "children": [
+                { "name": "JavaScript", "links": [] },
+                { "name": "Python", "links": [] },
+                { "name": "C++", "links": [] },
+                { "name": "Rust", "links": [] }
+              ]
+            },
+            {
+              "name": "Web Development",
+              "children": [
+                { "name": "Frontend", "links": [] },
+                { "name": "Backend", "links": [] },
+                { "name": "Full Stack", "links": [] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AI",
+          "children": [
+            { "name": "Machine Learning", "links": [] },
+            { "name": "Neural Networks", "links": [] },
+            { "name": "Computer Vision", "links": [] }
+          ]
+        },
+        {
+          "name": "Hardware",
+          "children": [
+            { "name": "PC Building", "links": [] },
+            { "name": "Keyboards", "links": [] },
+            { "name": "Displays", "links": [] }
+          ]
+        }
+      ]
+    },
+
     {
       "name": "Learning",
       "children": [
         {
           "name": "Science",
-          "links": [
+          "children": [
             {
-              "title": "Khan Academy",
-              "url": "https://www.khanacademy.org",
-              "desc": "Free courses on science and more"
+              "name": "Physics",
+              "children": [
+                { "name": "Mechanics", "links": [] },
+                { "name": "Quantum Physics", "links": [] },
+                { "name": "Relativity", "links": [] }
+              ]
             },
             {
-              "title": "NASA",
-              "url": "https://www.nasa.gov",
-              "desc": "Space, science, and exploration"
+              "name": "Biology",
+              "children": [
+                { "name": "Cells", "links": [] },
+                { "name": "Genetics", "links": [] },
+                { "name": "Evolution", "links": [] }
+              ]
             }
           ]
         },
         {
-          "name": "General Knowledge",
-          "links": [
-            {
-              "title": "Wikipedia",
-              "url": "https://www.wikipedia.org",
-              "desc": "Massive free knowledge base"
-            },
-            {
-              "title": "Britannica",
-              "url": "https://www.britannica.com",
-              "desc": "Trusted encyclopedia articles"
-            }
+          "name": "Mathematics",
+          "children": [
+            { "name": "Algebra", "links": [] },
+            { "name": "Geometry", "links": [] },
+            { "name": "Calculus", "links": [] },
+            { "name": "Statistics", "links": [] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "Gaming",
+      "children": [
+        {
+          "name": "Genres",
+          "children": [
+            { "name": "FPS", "links": [] },
+            { "name": "RPG", "links": [] },
+            { "name": "Simulation", "links": [] },
+            { "name": "Sports", "links": [] }
+          ]
+        },
+        {
+          "name": "Platforms",
+          "children": [
+            { "name": "PC", "links": [] },
+            { "name": "PlayStation", "links": [] },
+            { "name": "Xbox", "links": [] },
+            { "name": "Mobile", "links": [] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "Business",
+      "children": [
+        {
+          "name": "Startups",
+          "children": [
+            { "name": "Ideas", "links": [] },
+            { "name": "Pitching", "links": [] },
+            { "name": "Growth", "links": [] }
+          ]
+        },
+        {
+          "name": "Finance",
+          "children": [
+            { "name": "Investing", "links": [] },
+            { "name": "Stocks", "links": [] },
+            { "name": "Crypto", "links": [] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "Fitness",
+      "children": [
+        {
+          "name": "Workouts",
+          "children": [
+            { "name": "Strength Training", "links": [] },
+            { "name": "Cardio", "links": [] },
+            { "name": "Mobility", "links": [] }
+          ]
+        },
+        {
+          "name": "Sports",
+          "children": [
+            { "name": "Running", "links": [] },
+            { "name": "Cycling", "links": [] },
+            { "name": "Swimming", "links": [] }
           ]
         }
       ]
