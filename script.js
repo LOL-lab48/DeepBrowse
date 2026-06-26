@@ -2,7 +2,11 @@ let data;
 let historyStack = [];
 let path = [];
 let flatItems = [];
+
 let favourites = JSON.parse(localStorage.getItem("favs") || "[]");
+let userClicks = JSON.parse(localStorage.getItem("clicks") || "[]");
+let topicScores = JSON.parse(localStorage.getItem("scores") || "{}");
+
 let initialized = false;
 
 /* ICONS */
@@ -17,7 +21,7 @@ const icons = {
 };
 
 /* -------------------------
-   AUTO FALLBACK GENERATOR
+   FALLBACK DATA GENERATOR
 --------------------------*/
 function generateFallbackData() {
   return {
@@ -38,16 +42,6 @@ function generateFallbackData() {
                     desc: "Striker shooting practice"
                   }
                 ]
-              },
-              {
-                name: "Dribbling",
-                links: [
-                  {
-                    title: "Dribbling Skills",
-                    url: "https://www.youtube.com/results?search_query=soccer+dribbling+drills",
-                    desc: "1v1 control training"
-                  }
-                ]
               }
             ]
           }
@@ -62,7 +56,7 @@ function generateFallbackData() {
               {
                 title: "Learn Programming",
                 url: "https://www.youtube.com/results?search_query=learn+programming+basics",
-                desc: "Start coding fundamentals"
+                desc: "Coding fundamentals"
               }
             ]
           }
@@ -95,7 +89,23 @@ function init() {
 }
 
 /* -------------------------
-   FLATTEN TREE
+   CLICK TRACKING (AI CORE)
+--------------------------*/
+function trackClick(name, currentPath) {
+  userClicks.push({
+    name,
+    path: currentPath,
+    time: Date.now()
+  });
+
+  topicScores[name] = (topicScores[name] || 0) + 5;
+
+  localStorage.setItem("clicks", JSON.stringify(userClicks));
+  localStorage.setItem("scores", JSON.stringify(topicScores));
+}
+
+/* -------------------------
+   FLATTEN DATA
 --------------------------*/
 function flattenData(node, currentPath) {
   flatItems.push({
@@ -123,6 +133,32 @@ function flattenData(node, currentPath) {
 }
 
 /* -------------------------
+   AI RECOMMENDATIONS
+--------------------------*/
+function getAIRecommendations() {
+  const sorted = Object.entries(topicScores)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 6)
+    .map(([name]) => name);
+
+  let results = [];
+
+  function search(node) {
+    if (sorted.includes(node.name)) {
+      results.push(node);
+    }
+
+    if (node.children) {
+      node.children.forEach(search);
+    }
+  }
+
+  search(data);
+
+  return results;
+}
+
+/* -------------------------
    SHOW NODE
 --------------------------*/
 function showNode(node) {
@@ -134,13 +170,15 @@ function showNode(node) {
 
   updateBreadcrumbs();
 
-  /* SIDEBAR ROOT */
+  /* SIDEBAR */
   if (data.children) {
     data.children.forEach(child => {
       const btn = document.createElement("button");
       btn.innerText = (icons[child.name] || "📁") + " " + child.name;
 
       btn.onclick = () => {
+        trackClick(child.name, [...path, node.name]);
+
         historyStack = [data];
         path = [child.name];
         showNode(child);
@@ -158,6 +196,8 @@ function showNode(node) {
       div.innerHTML = `<strong>${icons[child.name] || "📁"} ${child.name}</strong>`;
 
       div.onclick = () => {
+        trackClick(child.name, [...path, node.name]);
+
         historyStack.push(node);
         path.push(child.name);
         showNode(child);
@@ -174,21 +214,22 @@ function showNode(node) {
     });
   }
 
-  /* RELATED TOPICS (ENGINE FEATURE) */
-  const related = getRelatedTopics(node);
-  if (related.length) {
-    const box = document.createElement("div");
-    box.innerHTML = "<h3>🔥 Related Topics</h3>";
+  /* AI RECOMMENDATIONS */
+  const ai = getAIRecommendations();
 
-    related.forEach(r => {
+  if (ai.length > 0) {
+    const box = document.createElement("div");
+    box.innerHTML = "<h3>🧠 Recommended For You</h3>";
+
+    ai.forEach(n => {
       const div = document.createElement("div");
       div.className = "card";
-      div.textContent = (icons[r.name] || "📁") + " " + r.name;
+      div.textContent = "⭐ " + n.name;
 
       div.onclick = () => {
         historyStack.push(node);
-        path.push(r.name);
-        showNode(r);
+        path.push(n.name);
+        showNode(n);
       };
 
       box.appendChild(div);
@@ -232,7 +273,6 @@ function createLinkCard(link) {
   div.innerHTML = `
     <a href="${link.url}" target="_blank">${link.title}</a>
     <div class="desc">${link.desc}</div>
-    <div class="desc">📍 ${(link.path || path).join(" > ")}</div>
     <button class="fav-btn">${isFav ? "★ Remove" : "☆ Favourite"}</button>
   `;
 
@@ -265,9 +305,9 @@ function showFavourites() {
 }
 
 /* -------------------------
-   SEARCH ENGINE
+   SEARCH
 --------------------------*/
-document.addEventListener("input", e => {
+document.addEventListener("input", (e) => {
   if (e.target.id !== "search") return;
 
   const term = e.target.value.toLowerCase();
@@ -311,26 +351,4 @@ document.addEventListener("input", e => {
 function updateBreadcrumbs() {
   document.getElementById("breadcrumbs").innerText =
     ["Home", ...path].join(" > ");
-}
-
-/* -------------------------
-   RELATED TOPICS ENGINE
---------------------------*/
-function getRelatedTopics(currentNode) {
-  if (!currentNode || !data) return [];
-
-  let related = [];
-
-  function scan(node) {
-    if (!node.children) return;
-
-    node.children.forEach(child => {
-      if (child.name !== currentNode.name) related.push(child);
-      scan(child);
-    });
-  }
-
-  scan(data);
-
-  return related.slice(0, 6);
 }
