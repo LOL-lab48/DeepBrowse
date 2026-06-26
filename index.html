@@ -8,9 +8,27 @@
 
 <body>
 
+<header>
+  <div class="logo">⚡ DeepBrowse AI</div>
+
+  <div class="topbar">
+    <button id="accountBtn">👤 Account</button>
+  </div>
+</header>
+
+<!-- LOGIN POPUP -->
+<div id="loginPopup" class="popup hidden">
+  <div class="popup-box">
+    <span id="closeLogin">✖</span>
+    <h2>Login to sync favourites</h2>
+    <input id="username" placeholder="Enter username" />
+    <button id="loginBtn">Login</button>
+  </div>
+</div>
+
 <main>
   <div class="sidebar">
-    <h2>DeepBrowse AI</h2>
+    <h2>Explore</h2>
     <div id="sidebar"></div>
   </div>
 
